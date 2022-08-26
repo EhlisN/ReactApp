@@ -1,8 +1,8 @@
-import React from "react";
-import Users from "../Users/Users";
+import React from 'react';
+import Users from '../../pages/Users';
 
 function App() {
-    return <Users />
+  return <Users />;
 }
 
 export default App;
