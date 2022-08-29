@@ -1,10 +1,10 @@
 import React, { FC, useEffect, useState } from 'react';
-import http from '../http';
 import { IUser } from '../components/Users/IUser';
 import UserCards from '../components/Users/UserCards';
 import UserAddForm from '../components/Users/UserAddForm';
-import SearchUser from '../components/Users/SearchUser';
+import SearchUser from '../components/Search/Search';
 import { useSearch } from '../hooks/useSearch';
+import httpUsers from '../https/httpUsers';
 
 const Users: FC = () => {
   const [users, setUsers] = useState<IUser[]>([]);
@@ -17,7 +17,7 @@ const Users: FC = () => {
 
   const getUsers = async () => {
     try {
-      const getNewUsers = await http.get('api/users?page=2');
+      const getNewUsers = await httpUsers.get('api/users?page=2');
       setUsers(getNewUsers.data.data);
     } catch (e) {
       console.log(e);
@@ -28,7 +28,7 @@ const Users: FC = () => {
     const isDelete = window.confirm('Do you really delete this user?');
     if (isDelete) {
       try {
-        const deletedUser = await http.delete(`api/users/${id}`);
+        const deletedUser = await httpUsers.delete(`api/users/${id}`);
         if (deletedUser) {
           setUsers(users.filter((user) => user.id !== id));
         }
@@ -42,7 +42,7 @@ const Users: FC = () => {
 
   return (
     <div className='container'>
-      <SearchUser setSearch={setSearch} />
+      <SearchUser setSearch={setSearch} name={'Username'} />
       <button
         type='submit'
         className='btn btn-dark mb-5 d-flex mx-auto'

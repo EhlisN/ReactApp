@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import { initialUser } from './initialUser';
 import { IUser } from './IUser';
-import http from '../../http';
+import httpUsers from '../../https/httpUsers';
 
 const UserAddForm = ({
   users,
@@ -26,7 +26,7 @@ const UserAddForm = ({
   const addUser = async (event: FormEvent) => {
     event.preventDefault();
     try {
-      const addedUser = await http.post('api/users', user);
+      const addedUser = await httpUsers.post('api/users', user);
       if (addedUser.data) {
         setUsers([...users, user]);
         setUser(initialUser);

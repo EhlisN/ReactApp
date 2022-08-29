@@ -1,8 +1,10 @@
 import React, { Dispatch } from 'react';
 
 const SearchUser = ({
+  name,
   setSearch,
 }: {
+  name: string;
   setSearch: Dispatch<React.SetStateAction<string>>;
 }) => {
   return (
@@ -13,7 +15,7 @@ const SearchUser = ({
       <input
         type='text'
         className='form-control'
-        placeholder='Username'
+        placeholder={name}
         onChange={(event) => setSearch(event.target.value)}
       />
     </div>
