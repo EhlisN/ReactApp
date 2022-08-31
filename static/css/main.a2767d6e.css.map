@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.a2767d6e.css","mappings":"AAAA,IACE,aAAc,CAGd,aAAc,CADd,eAAgB,CADhB,cAGF","sources":["pages/Main.css"],"sourcesContent":["img {\r\n  display: block;\r\n  max-width: 50vw;\r\n  max-height: 50vh;\r\n  margin: 0 auto;\r\n}\r\n"],"names":[],"sourceRoot":""}
