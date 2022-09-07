@@ -5,24 +5,28 @@ import UserAddForm from '../components/Users/UserAddForm';
 import SearchUser from '../components/Search/Search';
 import { useSearch } from '../hooks/useSearch';
 import httpUsers from '../https/httpUsers';
+import { useTypedSelector } from '../hooks/useTypedSelectors';
+import { useAction } from '../hooks/useAction';
 
 const Users: FC = () => {
-  const [users, setUsers] = useState<IUser[]>([]);
+  // const [users, setUsers] = useState<IUser[]>([]);
+  const { users } = useTypedSelector((state) => state.users);
   const [search, setSearch] = useState('');
   const [showUserForm, setShowUserForm] = useState(false);
+  const { getUsers } = useAction();
 
   useEffect(() => {
     getUsers();
   }, []);
 
-  const getUsers = async () => {
-    try {
-      const getNewUsers = await httpUsers.get('api/users?page=2');
-      setUsers(getNewUsers.data.data);
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  // const getUsers = async () => {
+  //   try {
+  //     const getNewUsers = await httpUsers.get('api/users?page=2');
+  //     setUsers(getNewUsers.data.data);
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
 
   const deleteUser = async (id: number) => {
     const isDelete = window.confirm('Do you really delete this user?');
@@ -30,7 +34,7 @@ const Users: FC = () => {
       try {
         const deletedUser = await httpUsers.delete(`api/users/${id}`);
         if (deletedUser) {
-          setUsers(users.filter((user) => user.id !== id));
+          // setUsers(users.filter((user) => user.id !== id));
         }
       } catch (e) {
         console.log(e);
@@ -50,7 +54,7 @@ const Users: FC = () => {
       >
         Add new User
       </button>
-      {showUserForm && <UserAddForm users={users} setUsers={setUsers} />}
+      {/* {showUserForm && <UserAddForm users={users} setUsers={setUsers} />} */}
       <UserCards users={searchedUsers} deleteUser={deleteUser} />
     </div>
   );

@@ -22,7 +22,7 @@ const Main = () => {
   return (
     <>
       <div className='text-center'>
-        <h1>Hello my freinds!!!</h1>
+        <h1>Hello my friends!!!</h1>
         <p>You can enjoy beautiful pictures...</p>
         <div>
           <img className='mb-3' src={image} alt='enjoy' />
