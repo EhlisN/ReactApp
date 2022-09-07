@@ -1,34 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import Loader from '../components/Loader/Loader';
-import { IPosts } from '../components/Posts/IPosts';
 import SearchUser from '../components/Search/Search';
+import { useAction } from '../hooks/useAction';
 import { useSearch } from '../hooks/useSearch';
-import httpsPosts from '../https/httpsPosts';
+import { useTypedSelector } from '../hooks/useTypedSelectors';
 
 const Posts = () => {
-  const [posts, setPosts] = useState<IPosts[]>([]);
+  const { posts } = useTypedSelector((state) => state.posts);
   const [search, setSearch] = useState('');
   const searchedPost = useSearch(posts, search, 'title');
+  const { getPosts } = useAction();
 
   useEffect(() => {
     getPosts();
   }, []);
-
-  const getPosts = async () => {
-    try {
-      const getNewPosts = await httpsPosts.get('');
-      setPosts(getNewPosts.data.data);
-    } catch (e) {
-      console.log(e);
-    }
-  };
 
   let key = 0;
 
   return (
     <>
       <SearchUser setSearch={setSearch} name={'Title'} />
-      {posts.length ? (
+      {posts ? (
         searchedPost.map((post) => {
           return (
             <div className='card mb-3' key={key++}>
