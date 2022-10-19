@@ -1,8 +1,25 @@
-# Application for work user data
+# react-crud-app
 
 ## Live version: https://ehlisn.github.io/ReactApp/
 
-Used functional...
+## Used technologies
+
+- react
+- typescript
+- react-redux
+- axios
+
+
+## Overview
+
+An example CRUD application using React, Redux, and React Hooks.
+
+#  Features:
+ - Sign up (using Api)
+  - Log in (using Api)
+  - Get users list (from Api) and save it
+  - Add a new user (sending request to Api) and save changes
+  - Delete a user (sending request to Api) and delete user
 
 ## Available Scripts
 
