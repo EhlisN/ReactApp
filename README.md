@@ -2,6 +2,13 @@
 
 ## Live version: https://ehlisn.github.io/ReactApp/
 
+### You can Use below creadentials for Successfull Login:
+
+•	Email : "eve.holt@reqres.in"
+
+•	Password : "cityslicka"
+
+
 ## Used technologies
 
 - react
@@ -13,7 +20,7 @@
 
 An example CRUD application using React, Redux, and React Hooks.
 
-##  Features:
+Features:
  - Sign up (using Api)
  - Log in (using Api)
  - Get users list (from Api) and save it
