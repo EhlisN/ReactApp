@@ -9,19 +9,19 @@
 - react-redux
 - axios
 
-
 ## Overview
 
 An example CRUD application using React, Redux, and React Hooks.
 
-#  Features:
+##  Features:
  - Sign up (using Api)
  - Log in (using Api)
  - Get users list (from Api) and save it
  - Add a new user (sending request to Api) and save changes
  - Delete a user (sending request to Api) and delete user
 
-### Installation
+
+## Installation
 - Clone or download the repository
 - Navigate to the repository's directory
 - Run `npm install` to install all the required packages
